@@ -106,7 +106,7 @@ if [ ! -d "${GRAALVM_JVM_DIRECTORY}" ]; then
 else
   echo "Resource Directory already exists: ${GRAALVM_JVM_DIRECTORY}"
 fi
-
+set -x
 # build package
 dpkg-deb -Zgzip -b ${GRAALVM_PACKAGE_DIRECTORY} ${GRAALVM_DEBIAN_PACKAGE}
 
