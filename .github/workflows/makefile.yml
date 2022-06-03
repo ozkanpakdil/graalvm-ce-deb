@@ -15,7 +15,7 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
-        gpg --generate-key
+        gpg --no-tty --generate-key
         rm -rf graalvm-ce-java*
         sudo apt -y install alien build-essential fakeroot devscripts debsigs
         VERSION=${{github.run_number}}
