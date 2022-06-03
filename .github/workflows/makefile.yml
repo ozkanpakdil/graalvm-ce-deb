@@ -29,8 +29,22 @@ jobs:
         echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
         echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
         echo RELOADAGENT | gpg-connect-agent
-        gpg --batch --no-tty --quick-generate-key $USER
-        #gpg --batch --no-tty --generate-key
+        cat >kspecs <<EOF
+         %echo Generating a OpenPGP key for GraalVM
+         Key-Type: RSA
+         Key-Length: 4096
+         Subkey-Type: RSA
+         Subkey-Length: 4096
+         Name-Real: GraalVM
+         Name-Comment: Graalvm key
+         Name-Email: no@email.com
+         Expire-Date: 0
+         Passphrase: secret
+         # Do a commit here, so that we can later print "done" :-)
+         %commit
+         %echo done
+        EOF
+        gpg --batch --generate-key kspecs
         gpg --list-keys
         ./build 11
     
