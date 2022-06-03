@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-JVM_VERSION=${JVM_VERSION:-'11'}
+JVM_VERSION=$1
 ALLOWED_JVM_VERSIONS=("8" "11" "17")	# TODO how to handle experimental versions like 16, 17 more gracefully?
 
 if [[ ! " ${ALLOWED_JVM_VERSIONS[@]} " =~ " ${JVM_VERSION} " ]]; then
