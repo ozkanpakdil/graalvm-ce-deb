@@ -61,7 +61,7 @@ fi
 if [ ! -f "${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz" ]; then
   echo "Original tarball does not exist: ${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz"
   # Download from https://github.com/graalvm/graalvm-ce-builds/releases
-  wget "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz"
+  wget -nv "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAALVM_VERSION}/${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz"
 else
   echo "Original tarball already exists: ${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz"
 fi
