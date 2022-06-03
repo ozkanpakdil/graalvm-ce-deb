@@ -108,7 +108,7 @@ else
 fi
 
 # build package
-dpkg-deb --root-owner-group -Zgzip -b ${GRAALVM_PACKAGE_DIRECTORY} ${GRAALVM_DEBIAN_PACKAGE}
+fakeroot dpkg-deb -Zgzip -b ${GRAALVM_PACKAGE_DIRECTORY} ${GRAALVM_DEBIAN_PACKAGE}
 
 # sign with default key
 debsigs --sign=origin ${GRAALVM_DEBIAN_PACKAGE}
