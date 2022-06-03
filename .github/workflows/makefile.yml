@@ -24,6 +24,10 @@ jobs:
     - name: build graal deb 11
       run: |
         set -x
+        echo use-agent >> ~/.gnupg/gpg.conf
+        echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
+        echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
+        echo RELOADAGENT | gpg-connect-agent
         gpg --batch --no-tty --quick-generate-key $USER
         #gpg --batch --no-tty --generate-key
         gpg --list-keys
