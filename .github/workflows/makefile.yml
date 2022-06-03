@@ -24,6 +24,7 @@ jobs:
     - name: build graal deb 11
       run: |
         set -x
+        gpg --batch --quick-generate-key $USER
         gpg --batch --generate-key
         gpg --list-keys
         ./build 11
