@@ -55,7 +55,6 @@ jobs:
       run: |
         DEBFILE=`find -name '*.deb'`
         sudo alien --nopatch -rk $DEBFILE
-        mv $DEBFILE .
         
     - name: Release with Notes
       uses: softprops/action-gh-release@v1
