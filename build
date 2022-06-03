@@ -111,4 +111,4 @@ set -x
 dpkg-deb -Zgzip -b ${GRAALVM_PACKAGE_DIRECTORY} ${GRAALVM_DEBIAN_PACKAGE}
 
 # sign with default key
-debsigs --sign=origin ${GRAALVM_DEBIAN_PACKAGE}
+#debsigs --sign=origin ${GRAALVM_DEBIAN_PACKAGE}
