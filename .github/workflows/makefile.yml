@@ -15,6 +15,7 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
+        rm -rf graalvm-ce-java*
         sudo apt -y install alien build-essential fakeroot devscripts debsigs
         VERSION=${{github.run_number}}
         echo "::set-output name=release_tag::$VERSION"
@@ -28,7 +29,7 @@ jobs:
 
     - name: create rpms
       run: |
-        DEBFILE=`find -name *.deb`
+        DEBFILE=`find -name '*.deb'`
         sudo alien --nopatch -rk $DEBFILE
         mv $DEBFILE .
         
