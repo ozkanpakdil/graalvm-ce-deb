@@ -4,7 +4,10 @@ summary: GraalVM java 17 for ubuntu/debian
 description: |
   Coming from https://github.com/ozkanpakdil/graalvm-ce-deb/
   Source https://github.com/oracle/graal.
-
+architectures:
+  - build-on: amd64
+    run-on: amd64
+    
 grade: stable
 confinement: classic
 
