@@ -11,7 +11,7 @@ confinement: classic
 parts:
   gnome:
     plugin: nil
-    source: https://apache.bintray.com/couchdb-deb/pool/C/CouchDB/couchdb_3.1.1~focal_amd64.deb
+    source: https://github.com/ozkanpakdil/graalvm-ce-deb/releases/download/21/graalvm-ce-java17_amd64_22.1.0-0.deb
     source-type: deb
     build-packages:
       - software-properties-common
