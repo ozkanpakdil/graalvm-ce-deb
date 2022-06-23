@@ -1,3 +1,5 @@
+[![graalvm](https://snapcraft.io/graalvm/badge.svg)](https://snapcraft.io/graalvm)
+
 graalvm-ce-deb
 =====
 
