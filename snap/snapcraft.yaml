@@ -19,6 +19,8 @@ parts:
     build-packages:
       - software-properties-common
     override-prime: |
+      snap refresh snapd
+      systemctl restart snapd
       apt install -y java-common
       update-java-alternatives --set /usr/lib/jvm/graalvm-ce-java17/
       gu install native-image
