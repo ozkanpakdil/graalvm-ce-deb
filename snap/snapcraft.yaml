@@ -18,9 +18,9 @@ parts:
       - software-properties-common
     override-prime: |
       apt-get install wget
+      apt install -y java-common
       wget https://github.com/ozkanpakdil/graalvm-ce-deb/releases/download/21/graalvm-ce-java17_amd64_22.1.0-0.deb
       dpkg -i graalvm-ce-java17_amd64_22.1.0-0.deb
-      apt install -y java-common
       update-java-alternatives --set /usr/lib/jvm/graalvm-ce-java17/
       gu install native-image
       java -version
