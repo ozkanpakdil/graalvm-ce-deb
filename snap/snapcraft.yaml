@@ -18,7 +18,7 @@ parts:
     source-type: deb
     build-packages:
       - software-properties-common
-    override-pull: |
+    override-prime: |
       update-java-alternatives --set /usr/lib/jvm/graalvm-ce-java17/
       gu install native-image
       java -version
