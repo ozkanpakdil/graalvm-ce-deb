@@ -14,13 +14,11 @@ confinement: classic
 parts:
   graalvm:
     plugin: nil
-    source: https://github.com/ozkanpakdil/graalvm-ce-deb/releases/download/21/graalvm-ce-java17_amd64_22.1.0-0.deb
-    source-type: deb
     build-packages:
       - software-properties-common
     override-prime: |
-      snap refresh snapd
-      systemctl restart snapd
+      wget https://github.com/ozkanpakdil/graalvm-ce-deb/releases/download/21/graalvm-ce-java17_amd64_22.1.0-0.deb
+      dpkg -i graalvm-ce-java17_amd64_22.1.0-0.deb
       apt install -y java-common
       update-java-alternatives --set /usr/lib/jvm/graalvm-ce-java17/
       gu install native-image
