@@ -17,6 +17,9 @@ parts:
     build-packages:
       - software-properties-common
     override-prime: |
+      snapcraftctl prime
+      snap set system proxy.http=""
+      snap set system proxy.https=""
       apt-get install wget
       apt install -y java-common
       wget https://github.com/ozkanpakdil/graalvm-ce-deb/releases/download/21/graalvm-ce-java17_amd64_22.1.0-0.deb
