@@ -19,6 +19,7 @@ parts:
     build-packages:
       - software-properties-common
     override-prime: |
+      apt install -y java-common
       update-java-alternatives --set /usr/lib/jvm/graalvm-ce-java17/
       gu install native-image
       java -version
