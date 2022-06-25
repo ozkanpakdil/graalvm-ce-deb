@@ -1,0 +1,47 @@
+#!/bin/sh -e
+set -x
+basedir=/usr/lib/jvm/graalvm-ce-java17
+priority=1089
+echo 'Graalvm after install'
+for bin in $basedir/bin/*; do
+    i=$(basename $bin)
+    update-alternatives --install /usr/bin/$i $i $bin $priority
+done
+ln -s /snap/graalvm/current $basedir
+echo 'name=graalvm-ce-java17
+priority=1119
+section=main
+
+hl rmid $basedir/bin/rmid
+hl java $basedir/bin/java
+hl keytool $basedir/bin/keytool
+hl rmiregistry $basedir/bin/rmiregistry
+jdkhl jar $basedir/bin/jar
+jdkhl jarsigner $basedir/bin/jarsigner
+jdkhl javac $basedir/bin/javac
+jdkhl javadoc $basedir/bin/javadoc
+jdkhl javap $basedir/bin/javap
+jdkhl jcmd $basedir/bin/jcmd
+jdkhl jdb $basedir/bin/jdb
+jdkhl jdeprscan $basedir/bin/jdeprscan
+jdkhl jdeps $basedir/bin/jdeps
+jdkhl jimage $basedir/bin/jimage
+jdkhl jinfo $basedir/bin/jinfo
+jdkhl jlink $basedir/bin/jlink
+jdkhl jmap $basedir/bin/jmap
+jdkhl jmod $basedir/bin/jmod
+jdkhl jpackage $basedir/bin/jpackage
+jdkhl jps $basedir/bin/jps
+jdkhl jrunscript $basedir/bin/jrunscript
+jdkhl jshell $basedir/bin/jshell
+jdkhl jstack $basedir/bin/jstack
+jdkhl jstat $basedir/bin/jstat
+jdkhl jstatd $basedir/bin/jstatd
+jdkhl serialver $basedir/bin/serialver
+jdkhl jhsdb $basedir/bin/jhsdb
+jdk jconsole $basedir/bin/jconsole
+jdk jfr $basedir/bin/jfr
+jdk jvisualvm $basedir/bin/jvisualvm' > /usr/lib/jvm/.graalvm-ce-java17.jinfo
+update-java-alternatives --set $basedir
+$basedir/bin/gu install native-image
+java -version
